@@ -6,13 +6,17 @@ use 5.008005;
 use parent qw/Plack::Middleware/;
 use DBIx::DisconnectAll;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub call {
     my ( $self, $env) = @_;
     my $res = $self->app->($env);
     Plack::Util::response_cb($res, sub {
         my $res = shift;
+        if ( defined $res->[2] ) {
+            dbi_disconnect_all();
+            return;
+        }
         return sub {
             my $chunk = shift;
             if ( ! defined $chunk ) {

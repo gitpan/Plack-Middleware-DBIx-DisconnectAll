@@ -1,13 +1,11 @@
 {
    "abstract" : "Disconnect all database connection at end of request",
    "author" : [
-      "Masahiro Nagano E<lt>kazeburo@gmail.comE<gt>"
+      "Masahiro Nagano <kazeburo@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
-   "license" : [
-      "perl_5"
-   ],
+   "generated_by" : "Minilla/v0.5.6",
+   "license" : "perl_5",
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
@@ -15,19 +13,29 @@
    "name" : "Plack-Middleware-DBIx-DisconnectAll",
    "no_index" : {
       "directory" : [
-         "inc"
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples",
+         "author"
       ]
    },
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "Test::More" : "0.98",
-            "Test::Requires" : "0"
-         }
-      },
       "configure" : {
          "requires" : {
+            "CPAN::Meta" : "0",
+            "CPAN::Meta::Prereqs" : "0",
             "Module::Build" : "0.38"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion" : "0.10108",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
          }
       },
       "runtime" : {
@@ -37,19 +45,30 @@
             "parent" : "0",
             "perl" : "5.008005"
          }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0.98",
+            "Test::Requires" : "0"
+         }
       }
    },
    "provides" : {
       "Plack::Middleware::DBIx::DisconnectAll" : {
          "file" : "lib/Plack/Middleware/DBIx/DisconnectAll.pm",
-         "version" : "0.01"
+         "version" : "0.02"
       }
    },
    "release_status" : "stable",
    "resources" : {
-      "license" : [
-         "http://dev.perl.org/licenses/"
-      ]
+      "bugtracker" : {
+         "web" : "https://github.com/kazeburo/Plack-Middleware-DBIx-DisconnectAll/issues"
+      },
+      "homepage" : "https://github.com/kazeburo/Plack-Middleware-DBIx-DisconnectAll",
+      "repository" : {
+         "url" : "git://github.com/kazeburo/Plack-Middleware-DBIx-DisconnectAll.git",
+         "web" : "https://github.com/kazeburo/Plack-Middleware-DBIx-DisconnectAll"
+      }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }
